@@ -38,7 +38,7 @@ public class MysqlConnector extends SqlBasedConnector<MysqlDatasourceConfig> {
         String host = datasourceConfig.getHost();
         long port = datasourceConfig.getPort();
         String database = datasourceConfig.getDatabase();
-        String url = "jdbc:mysql://" + host + ":" + port + "/" + (isNotBlank(database) ? database : "");
+        String url = "jdbc:mysql://" + host + ":" + port + "/" + (isNotBlank(database) ? database : "") + "?allowPublicKeyRetrieval=true&useSSL=false";
         config.setJdbcUrl(url);
 
         config.addDataSourceProperty("zeroDateTimeBehavior", "convertToNull");
